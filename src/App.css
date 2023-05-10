@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Source+Code+Pro:wght@600&display=swap');
+
+
+/* ======BASIC CSS====== */
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Bakbak One", cursive;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.yellow{
+  color: #fee600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.green{
+  color: #00ffa3;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.psize{
+  font-size:1.3rem;
+}
+
+.h4size{
+  font-size:1.8rem;
+}
+
+.h1size{
+  font-size:4.5rem;
+}
+
+.btn-clr{
+  background-color: #fee600;
+  color:black;
+  border:none;
+}
+
+
+.color{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.text{
+  font-family: "Inter", sans-serif;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.h6steps{
+  border-top: 1px solid #1d253b;
+}
+
+
+
+/* =====NAVBAR CSS===== */
+
+.navbar{
+  /* background: url(./images/bgmint.png); */
+  background-color: #030b21;
+}
+
+.navbar-nav{
+  color:white;
+}
+
+.nav-link{
+  color:white;
+  font-size: 1.4rem;
+
+}
+
+
+.nav-link:hover{
+  color:#fee600;
+  font-size: 1.4rem;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+}
+
+.item-list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-fluid{
+  color: white;
+}
+
+
+.write{
+  color: white;
+}
+
+/*  2 section bg colour #030b21 */
+
+/* ==========HOMEPAGE============ */
+
+.logo{
+  padding-top: 12%;
+}
+
+section{
+  min-height: 90.8vh;
+  min-width: 99vw;
+  overflow: hidden;
+  background: url(./images/bgmint.png);
+  background-color: #030b21;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* padding-block: 160px; */
+
+}
+
+
+.btn:hover{
+  position: relative;
+  bottom: 2px;
+  transition:all 2s ease-in ;
 }
