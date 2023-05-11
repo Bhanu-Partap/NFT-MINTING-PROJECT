@@ -1,8 +1,7 @@
-// import Container from "react-bootstrap/Container";
-// import Nav from "react-bootstrap/Nav";
-// import Navbar from "react-bootstrap/Navbar";
-// import Offcanvas from "react-bootstrap/Offcanvas";
+import { Button } from "react-bootstrap";
+import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 
 function OffcanvasExample() {
   return (
@@ -41,6 +40,7 @@ function OffcanvasExample() {
                 </Link>
               </li>
             </ul>
+            <Button className="btnsize btn-clrg me-4">Connect <FaWallet /> </Button>
           </div>
         </div>
       </nav>

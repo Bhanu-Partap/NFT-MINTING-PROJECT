@@ -39,6 +39,12 @@
   border: none;
 }
 
+.btn-clrg {
+  background-color: #00ffa3;
+  color: black;
+  border: none;
+}
+
 .color {
   color: white;
 }
@@ -121,6 +127,14 @@ section {
   bottom: 2px;
   transition: all 2s ease-in;
 }
+
+
+.btnsize{
+  height: 50px !important;
+  width : 120px !important;
+}
+
+
 
 /* =======ABOUT PAGE===== */
 
