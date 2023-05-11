@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import nft1 from "../images/01.png";
 
 export default function About() {
@@ -8,13 +8,13 @@ export default function About() {
       <section>
         <div className="container">
           <Row className="color">
-            <Col>
+            <Col xs="12" md="12" lg="6">
               <Row>
                 <img className="img-fluid" src={nft1} alt="1NFT" />
               </Row>
             </Col>
-            <Col className="px-5">
-              <Row>
+            <Col className="px-5" xs="12" md="12" lg="6">
+              <Row className="pt-md-4 pt-sm-4 pt-xs-5 " >
                 <p className="green">THE STORY</p>
                 <h1>ABOUT US</h1>
                 <p className="text">
@@ -36,21 +36,22 @@ export default function About() {
                 </p>
                 <Row>
                   <Col>
-                    <Row>
-                      <h6 className="h6steps"> <span className="yellow">1.</span> Connect Your Wallet</h6>
+                    <Row className="p-4 px-0 ">
+                      <h6 className="h6steps pt-1 h6size"> <span className="yellow">1.</span> Connect Your Wallet</h6>
                     </Row>
-                    <Row >
-                    <h6 className="h6steps"> <span className="yellow">2.</span> Select Your Quantity</h6>
+                    <Row className="p-4 px-0" >
+                    <h6 className="h6steps pt-1 h6size"> <span className="yellow">2.</span> Select Your Quantity</h6>
                     </Row>
                   </Col>
                   <Col>
-                    <Row>
-                    <h6 className="h6steps"> <span className="green">3.</span> Confirm The Transaction</h6>
+                    <Row className="p-4 px-0">
+                    <h6 className="h6steps pt-1 h6size"> <span className="green">3.</span> Confirm The Transaction</h6>
                     </Row>
-                    <Row>
-                    <h6 className="h6steps"> <span className="green">4.</span> Recieve Your NFTs</h6>
+                    <Row className="p-4 px-0 paddingleft">
+                    <h6 className="h6steps pt-1 h6size"> <span className="green">4.</span> Recieve Your NFTs</h6>
                     </Row>
                   </Col>
+                  <Button className="btn yellow btn-clr marginbottom ">Mint Now</Button>
                 </Row>
               </Row>
             </Col>

@@ -1,97 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Source+Code+Pro:wght@600&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Source+Code+Pro:wght@600&display=swap");
 
 /* ======BASIC CSS====== */
 
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: "Bakbak One", cursive;
   box-sizing: border-box;
 }
 
-.yellow{
+.yellow {
   color: #fee600;
 }
 
-.green{
+.green {
   color: #00ffa3;
 }
 
-
-.psize{
-  font-size:1.3rem;
+.psize {
+  font-size: 1.3rem;
 }
 
-.h4size{
-  font-size:1.8rem;
+.h6size {
+  font-size: 1.1rem;
 }
 
-.h1size{
-  font-size:4.5rem;
+.h4size {
+  font-size: 1.8rem;
 }
 
-.btn-clr{
+.h1size {
+  font-size: 4.5rem;
+}
+
+.btn-clr {
   background-color: #fee600;
-  color:black;
-  border:none;
+  color: black;
+  border: none;
 }
 
-
-.color{
+.color {
   color: white;
 }
 
-.text{
+.text {
   font-family: "Inter", sans-serif;
-
 }
 
-.h6steps{
+.h6steps {
   border-top: 1px solid #1d253b;
 }
 
-
+.paddingleft {
+  padding-left: -10px !important;
+}
 
 /* =====NAVBAR CSS===== */
 
-.navbar{
+.navbar {
   /* background: url(./images/bgmint.png); */
   background-color: #030b21;
 }
 
-.navbar-nav{
-  color:white;
+.navbar-nav {
+  color: white;
 }
 
-.nav-link{
-  color:white;
+.nav-link {
+  color: #fee600;
   font-size: 1.4rem;
-
 }
 
-
-.nav-link:hover{
-  color:#fee600;
+.nav-link:hover {
+  color: #00ffa3 !important;
   font-size: 1.4rem;
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
   cursor: pointer;
 }
 
-.item-list{
+.active {
+  color: #fee600 !important;
+}
+
+.item-list {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.container-fluid{
+.container-fluid {
   color: white;
 }
 
-
-.write{
+.write {
   color: white;
 }
 
@@ -99,11 +100,11 @@
 
 /* ==========HOMEPAGE============ */
 
-.logo{
+.logo {
   padding-top: 12%;
 }
 
-section{
+section {
   min-height: 90.8vh;
   min-width: 99vw;
   overflow: hidden;
@@ -113,12 +114,40 @@ section{
   background-size: cover;
   background-position: center;
   /* padding-block: 160px; */
+}
 
+.btn:hover {
+  position: relative;
+  bottom: 2px;
+  transition: all 2s ease-in;
+}
+
+/* =======ABOUT PAGE===== */
+
+.btn:hover{
+  background-color: #00ffa3;
+  border: none;
 }
 
 
-.btn:hover{
-  position: relative;
-  bottom: 2px;
-  transition:all 2s ease-in ;
+
+
+
+
+/* ====== MEDIAQUERY===== */
+
+@media (min-width: 150px) {
+  .pt-xs-5 {
+    padding-top: 1.5rem !important;
+  }
+
+
+  .fs-md-4 {
+    font-size: 3rem !important;
+  }
+
+  .marginbottom{
+    margin-bottom: 4% !important ;
+  }
+
 }

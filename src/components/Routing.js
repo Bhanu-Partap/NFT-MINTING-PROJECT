@@ -3,6 +3,7 @@ import Navbar  from "../components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "../Pages/Homepage";
 import About from "../Pages/About";
+import Collection from "../Pages/Collection";
 
 export default function Routing() {
   return (
@@ -11,6 +12,7 @@ export default function Routing() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/collection" element={<Collection />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
