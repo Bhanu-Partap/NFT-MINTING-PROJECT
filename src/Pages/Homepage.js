@@ -23,7 +23,7 @@ export default function Homepage() {
               <Button className="btn btnsize btn-clr">Mint Now <FaWifi /></Button>
             </div>
           </Col>
-          <Col xs="12" md="12" lg="6">
+          <Col className="" xs="12" md="12" lg="6">
             <img className="img-fluid logo" src={logo} alt="Bored Ape" />
           </Col>
         </Row>

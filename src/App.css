@@ -150,10 +150,12 @@ section {
 
 /* ====== MEDIAQUERY===== */
 
-@media (min-width: 150px) {
+@media (min-width: 150px) and (max-width:767px) {
   .pt-xs-5 {
     padding-top: 1.5rem !important;
   }
+
+
 
 
   .fs-md-4 {
