@@ -80,7 +80,7 @@ function OffcanvasExample() {
   const disconnectFromMetamask = async () => {
     if (window.ethereum) {
       try {
-        await window.ethereum.disable();
+        await window.ethereum.close();
         setWeb3(null);
         setAccounts([0]);
       } catch (error) {
