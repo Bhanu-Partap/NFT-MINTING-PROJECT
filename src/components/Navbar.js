@@ -22,17 +22,17 @@ function OffcanvasExample() {
     }
   };
 
-  const disconnectFromMetamask = async () => {
-    if (window.ethereum) {
-      try {
-        await window.ethereum.disable();
-        setWeb3(null);
-        setAccounts([]);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  };
+  // const disconnectFromMetamask = async () => {
+  //   if (window.ethereum) {
+  //     try {
+  //       await window.ethereum.disable();
+  //       setWeb3(null);
+  //       setAccounts([]);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -73,7 +73,7 @@ function OffcanvasExample() {
             </ul>
          
             <Button
-              onClick={web3 ?connectToMetamask  : disconnectFromMetamask}
+              onClick={connectToMetamask}
               className="btnsize btn-clrg me-4"
             >
               Connect <FaWallet />
