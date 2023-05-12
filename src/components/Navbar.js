@@ -6,60 +6,8 @@ import { Link } from "react-router-dom";
 // import { detectEthereumProvider } from '@metamask/detect-provider';
 
 function OffcanvasExample() {
-  // const [account, setAccount] = useState('');
 
-  // const connectToMetamask = () => {
-  //   detectEthereumProvider().then(provider => {
-  //     if (provider) {
-  //       provider.request({ method: 'eth_requestAccounts' })
-  //         .then(accounts => {
-  //           const selectedAccount = accounts[0];
-  //           setAccount(selectedAccount);
-  //           const web3 = new Web3(provider);
-  //           // Use 'web3' to interact with the Ethereum network
-  //         })
-  //         .catch(error => {
-  //           // Handle error or user denial
-  //         });
-  //     } else {
-  //       // Metamask not installed
-  //     }
-  //   });
-  // };
-
-  // const [data, setdata] = useState({
-  //   address: "", // Stores address
-  //   Balance: null, // Stores balance
-  // });
-
-  // const handleSubmit = () => {
-  //   if (window.ethereum) {
-  //     // Do something
-  //   } else {
-  //     alert("install metamask extension!!");
-  //   }
-
-  //   window.ethereum.request({ method: "eth_requestAccounts" }).then((res) => {
-  //     // Return the address of the wallet
-  //     console.log(res);
-  //   });
-
-  //   window.ethereum
-  //     .request({
-  //       method: "eth_getBalance",
-  //       params: [address, "latest"],
-  //     })
-  //     .then((balance) => {
-  //       // Return string value to convert it into int balance
-  //       console.log(balance);
-
-  //       // Yarn add ethers for using ethers utils or
-  //       // npm install ethers
-  //       console.log(ethers.utils.formatEther(balance));
-  //       // Format the string into main latest balance
-  //     });
-  // };
-
+  
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
 
