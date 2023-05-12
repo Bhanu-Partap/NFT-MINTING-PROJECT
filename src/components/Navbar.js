@@ -82,7 +82,7 @@ function OffcanvasExample() {
       try {
         await window.ethereum.disable();
         setWeb3(null);
-        setAccounts([]);
+        setAccounts([0]);
       } catch (error) {
         console.error(error);
       }
@@ -126,20 +126,13 @@ function OffcanvasExample() {
                 </Link>
               </li>
             </ul>
-            <Button
-              onClick={connectToMetamask}
-              className="btnsize btn-clrg me-4"
-            >
-              Connect <FaWallet />
-            </Button>
-            {/* <span >Connected Account: {accounts}</span> */}
-
-            {/* <Button
-              onClick={disconnectFromMetamask}
-              className="btnsize btn-clrg me-4"
-            >
-              Logout
-            </Button> */}
+      {accounts.length > 0 && <p>Accounts: {accounts.join(', ')}</p>}
+      {web3 ? (
+        <Button className="btnsize btn-clrg me-4" onClick={disconnectFromMetamask}>Logout <FaWallet /></Button>
+      ) : (
+        <Button className="btnsize btn-clrg me-4" onClick={connectToMetamask}>Connect <FaWallet /></Button>
+      )}
+            
           </div>
         </div>
       </nav>
