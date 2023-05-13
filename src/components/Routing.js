@@ -14,7 +14,6 @@ export default function Routing() {
           <Route path="/" element={<Homepage />} />
           <Route path="/collection" element={<Collection />} />
           <Route path="/about" element={<About />} />
-          <Route path="/interact" element={<interact />} />
         </Routes>
       </BrowserRouter>
     </>

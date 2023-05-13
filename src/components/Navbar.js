@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// import { detectEthereumProvider } from '@metamask/detect-provider';
+
 
 function OffcanvasExample() {
 
-  
+
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
 
@@ -28,9 +28,12 @@ function OffcanvasExample() {
   const disconnectFromMetamask = async () => {
     if (window.ethereum) {
       try {
-        await window.ethereum.close();
+        await window.ethereum.request({
+          method: 'wallet_requestPermissions',
+          params: [{ eth_accounts: {} }],
+        });
         setWeb3(null);
-        setAccounts([0]);
+        setAccounts([]);
       } catch (error) {
         console.error(error);
       }
