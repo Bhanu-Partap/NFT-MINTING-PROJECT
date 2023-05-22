@@ -28,7 +28,7 @@ function OffcanvasExample() {
   const disconnectFromMetamask = async () => {
     if (window.ethereum) {
       try {
-        await window.ethereum.request({
+        await window.ethereum({
           method: 'wallet_requestPermissions',
           params: [{ eth_accounts: {} }],
         });
