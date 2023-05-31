@@ -5,12 +5,14 @@ import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
+
+
 function OffcanvasExample() {
-
-
+  
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
-
+  
+ 
   const connectToMetamask = async () => {
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);
@@ -25,11 +27,12 @@ function OffcanvasExample() {
     }
   };
 
+
   const disconnectFromMetamask = async () => {
     if (window.ethereum) {
       try {
         await window.ethereum({
-          method: 'wallet_requestPermissions',
+          method: "wallet_requestPermissions",
           params: [{ eth_accounts: {} }],
         });
         setWeb3(null);
@@ -77,15 +80,27 @@ function OffcanvasExample() {
                 </Link>
               </li>
             </ul>
-      {accounts.length > 0 && <p>Accounts: {accounts.slice(0, 5) + "..." + accounts.slice(38, 42)}</p>}
-      {web3 ? (
-        <Button className="btnsize btn-clrg me-4" onClick={disconnectFromMetamask} 
-        
-         >Logout <FaWallet /></Button>
-      ) : (
-        <Button className="btnsize btn-clrg me-4" onClick={connectToMetamask} >Connect <FaWallet /></Button>
-      )}
-            
+            {accounts.length > 0 && (
+              <p>
+                Accounts:{" "}
+                {accounts.slice(0, 5) + "..." + accounts.slice(38, 42)}
+              </p>
+            )}
+            {web3 ? (
+              <Button
+                className="btnsize btn-clrg me-4"
+                onClick={disconnectFromMetamask}
+              >
+                Logout <FaWallet />
+              </Button>
+            ) : (
+              <Button
+                className="btnsize btn-clrg me-4"
+                onClick={connectToMetamask}
+              >
+                Connect <FaWallet />
+              </Button>
+            )}
           </div>
         </div>
       </nav>
