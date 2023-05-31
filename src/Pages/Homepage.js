@@ -2,11 +2,17 @@ import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import logo from "../images/NFTs.png";
 import { FaWifi } from "react-icons/fa";
+
 import Web3 from "web3";
+import OffcanvasExample from "../components/Navbar"
+import { useState } from "react";
+
 
 
 export default function Homepage() {
 
+  const [accounts, setAccounts] = useState([]);
+  
   
 const Minting = async () => {
   const ABI = [
@@ -448,7 +454,7 @@ const Minting = async () => {
   const Address = "0x7EF2e0048f5bAeDe046f6BF797943daF4ED8CB47";
   window.web3 = await new Web3(window.ethereum);
   window.contract = await new window.web3.eth.Contract(ABI, Address); 
-  await window.contract.methods.mintNFT(acnt.accounts).send({from: accounts,gas:"1000000"});
+  await window.contract.methods.mintNFT(accounts).send({from: accounts,gas:"1000000"});
 
 }
 

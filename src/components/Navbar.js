@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -19,13 +19,17 @@ function OffcanvasExample() {
       try {
         await window.ethereum.enable();
         setWeb3(web3);
-        const accounts = await web3.eth.getAccounts();
-        setAccounts(accounts);
+        const accountss = await web3.eth.getAccounts();
+        setAccounts(accountss);
       } catch (error) {
         console.error(error);
       }
     }
   };
+
+  // useEffect(() => {
+  //   console.log(accounts);
+  // }, [accounts]);
 
 
   const disconnectFromMetamask = async () => {
@@ -82,7 +86,7 @@ function OffcanvasExample() {
             </ul>
             {accounts.length > 0 && (
               <p>
-                Accounts:{" "}
+                Account:{" "}
                 {accounts.slice(0, 5) + "..." + accounts.slice(38, 42)}
               </p>
             )}
