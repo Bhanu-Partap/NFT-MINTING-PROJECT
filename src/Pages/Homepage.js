@@ -5,6 +5,10 @@ import { FaWifi } from "react-icons/fa";
 
 
 export default function Homepage() {
+
+  const MintItem()=
+
+
   return (
     <section>
       <div className="container pt-md-4 pt-lg-4 pt-sm-0 mt-sm-0 mt-4 ">
@@ -20,7 +24,7 @@ export default function Homepage() {
               </h1>
               <p className="psize">8,888 Unique Undercover Creatures and Cars, Start Minting</p>
               <p className="psize">The 8th of MAY 2023</p>
-              <Button className="btn btnsize btn-clr">Mint Now <FaWifi /></Button>
+              <Button className="btn btnsize btn-clr" onClick={}>Mint Now <FaWifi /></Button>
             </div>
           </Col>
           <Col className="" xs="12" md="12" lg="6">
