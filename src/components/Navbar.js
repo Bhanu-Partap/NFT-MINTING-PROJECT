@@ -19,13 +19,30 @@ function OffcanvasExample() {
       try {
         await window.ethereum.enable();
         setWeb3(web3);
-        const accountss = await web3.eth.getAccounts();
-        setAccounts(accountss);
+        const accounts = await web3.eth.getAccounts();
+        setAccounts(accounts);
       } catch (error) {
         console.error(error);
       }
     }
   };
+
+  toChecksumAddress (Address) {
+    Address = Address.toLowerCase().replace('0x', '')
+    let hash = createKeccakHash('keccak256').update(Address).digest('hex')
+    let ret = '0x'
+
+    for (var i = 0; i < Address.length; i++) {
+      if (parseInt(hash[i], 16) >= 8) {
+        ret += Address[i].toUpperCase()
+      } else {
+        ret += Address[i]
+      }
+    }
+
+    return ret
+  }
+
 
   // useEffect(() => {
   //   console.log(accounts);
