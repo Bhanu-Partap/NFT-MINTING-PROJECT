@@ -452,10 +452,10 @@ const Minting = async () => {
 
 
   
-  const Address = "0x20775d300BdE943Ac260995E977fb915fB01f399";
+  const Address = "0x20775d300bde943ac260995e977fb915fb01f399";
   window.web3 = await new Web3(window.ethereum);
   window.contract = await new window.web3.eth.Contract(ABI, Address); 
-  await window.contract.methods.mintNFT(accounts).send({from: accounts,gas:"1000000"});
+  await window.contract.methods.mintNFT(accounts[0]).send({from: accounts,gas:"1000000"});
 
 
 }

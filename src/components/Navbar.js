@@ -20,33 +20,17 @@ function OffcanvasExample() {
         await window.ethereum.enable();
         setWeb3(web3);
         const accounts = await web3.eth.getAccounts();
-        setAccounts(accounts);
+        const capitalizedAccounts = accounts.map((address) => address.toUpperCase());
+        setAccounts(capitalizedAccounts);
       } catch (error) {
         console.error(error);
       }
     }
   };
 
-  toChecksumAddress (Address) {
-    Address = Address.toLowerCase().replace('0x', '')
-    let hash = createKeccakHash('keccak256').update(Address).digest('hex')
-    let ret = '0x'
-
-    for (var i = 0; i < Address.length; i++) {
-      if (parseInt(hash[i], 16) >= 8) {
-        ret += Address[i].toUpperCase()
-      } else {
-        ret += Address[i]
-      }
-    }
-
-    return ret
-  }
-
-
-  // useEffect(() => {
-  //   console.log(accounts);
-  // }, [accounts]);
+  useEffect(() => {
+    console.log(accounts);
+  }, [accounts]);
 
 
   const disconnectFromMetamask = async () => {
