@@ -77,11 +77,13 @@ function OffcanvasExample() {
                 </Link>
               </li>
             </ul>
-      {accounts.length > 0 && <p>Accounts: {accounts.join(', ')}</p>}
+      {accounts.length > 0 && <p>Accounts: {accounts.slice(0, 5) + "..." + accounts.slice(38, 42)}</p>}
       {web3 ? (
-        <Button className="btnsize btn-clrg me-4" onClick={disconnectFromMetamask}>Logout <FaWallet /></Button>
+        <Button className="btnsize btn-clrg me-4" onClick={disconnectFromMetamask} 
+        
+         >Logout <FaWallet /></Button>
       ) : (
-        <Button className="btnsize btn-clrg me-4" onClick={connectToMetamask}>Connect <FaWallet /></Button>
+        <Button className="btnsize btn-clrg me-4" onClick={connectToMetamask} >Connect <FaWallet /></Button>
       )}
             
           </div>

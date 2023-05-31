@@ -8,6 +8,12 @@ async function main() {
 
   }
 
+  async function consoleBalances(addresses){
+    let counter = 0;
+    for(const address of addresses){
+      console.log(`Address ${counter} balance:`, await getBalances(address));
+    }
+  }
 
 
 }
