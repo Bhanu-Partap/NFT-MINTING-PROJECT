@@ -86,9 +86,9 @@ function OffcanvasExample() {
               </li>
             </ul>
             {accounts.length > 0 && (
-              <p>
+              <p className="px-3">
                 Account:{" "}
-                {accounts.slice(0, 5) + "..." + accounts.slice(38, 42)}
+                {accounts[0].slice(0, 4) + "..." + accounts[0].slice(38, 42)}
               </p>
             )}
             {web3 ? (
