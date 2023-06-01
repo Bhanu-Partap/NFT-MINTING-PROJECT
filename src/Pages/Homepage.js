@@ -3,9 +3,8 @@ import { Row, Col, Button } from "react-bootstrap";
 import logo from "../images/NFTs.png";
 import { FaWifi } from "react-icons/fa";
 import Web3 from "web3";
-import OffcanvasExample from "../components/Navbar"
 import { useState } from "react";
-import {abijson} from "../Abi.json"
+import abijson from "../Abi.json"
 
 
 export default function Homepage() {
@@ -13,13 +12,20 @@ export default function Homepage() {
   const [accounts, setAccounts] = useState([]);
   
   
-const Minting = async () => {
-  const ABI = {abijson};
+  const Minting = async () => {
 
+
+    // const ABI = {abijson};
+    const ABI = abijson ;
+    // console.log(abijson);
   
-  const Address = "0x20775d300bde943ac260995e977fb915fb01f399";
-  window.web3 = await new Web3(window.ethereum);
-  window.contract = await new window.web3.eth.Contract(ABI, Address); 
+
+    const Address ="0xf8e81D47203A594245E36C48e151709F0C19fBe8";
+    // const uppercaseAddress = Address.toUpperCase();
+    // console.log(uppercaseAddress);
+    window.web3 = await new Web3(window.ethereum);
+    window.contract = await new window.web3.eth.Contract(ABI, Address);
+    console.log(accounts); 
   await window.contract.methods.mintNFT(accounts[0]).send({from: accounts[0],gas:"1000000"});
 
 

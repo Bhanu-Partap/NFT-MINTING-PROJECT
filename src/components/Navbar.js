@@ -12,12 +12,20 @@ function OffcanvasExample() {
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
   
+  
+//   const connectMetamask = async () => {
+//     if(window.ethereum !== "undefined") {
+//         const accounts = await window.ethereum.request({method: "eth_requestAccounts"});              
+//         // account = accounts[0];
+//         // document.getElementById("userArea").innerHTML = `User Account: ${account}`;
+//     }
+// }
  
   const connectToMetamask = async () => {
-    if (window.ethereum) {
+    if (window.ethereum && window.ethereum.isMetaMask) {
       const web3 = new Web3(window.ethereum);
       try {
-        await window.ethereum.enable();
+        await window.ethereum.request({method: 'eth_requestAccounts'});
         setWeb3(web3);
         const accounts = await web3.eth.getAccounts();
         const capitalizedAccounts = accounts.map((address) => address.toUpperCase());
@@ -26,6 +34,9 @@ function OffcanvasExample() {
         console.error(error);
       }
     }
+    else {
+			console.log('Need to install MetaMask');
+		}
   };
 
   useEffect(() => {
@@ -47,6 +58,8 @@ function OffcanvasExample() {
       }
     }
   };
+
+
 
   return (
     <>
