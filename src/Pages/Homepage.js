@@ -4,6 +4,7 @@ import logo from "../images/NFTs.png";
 import { FaWifi } from "react-icons/fa";
 import Web3 from "web3";
 import abijson from "../Abi.json"
+import { toast } from 'react-toastify';
 
 
 const Homepage = ({web3, accounts}) => {
@@ -14,12 +15,12 @@ const Homepage = ({web3, accounts}) => {
     const ABI = abijson ;  
 
     const Address ="0x3661eca11A85e669B51717392d74F4509891c37b";
-    // const uppercaseAddress = Address.toUpperCase();
-    // console.log(uppercaseAddress);
+    window.web3 = await new Web3(window.ethereum);
     window.web3 = await new Web3(window.ethereum);
     window.contract = await new window.web3.eth.Contract(ABI, Address);
     console.log(accounts); 
     await window.contract.methods.mintNFT(accounts[0]).send({from: accounts[0],gas:"1000000"});
+    toast.success('Toast notification message');
 
 
 }
