@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Homepage from "../Pages/Homepage"
 
 
 
-
-function OffcanvasExample() {
+const OffcanvasExample =() => {
   
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
@@ -28,8 +28,8 @@ function OffcanvasExample() {
         await window.ethereum.request({method: 'eth_requestAccounts'});
         setWeb3(web3);
         const accounts = await web3.eth.getAccounts();
-        const capitalizedAccounts = accounts.map((address) => address.toUpperCase());
-        setAccounts(capitalizedAccounts);
+        // const capitalizedAccounts = accounts.map((address) => address.toUpperCase());
+        setAccounts(accounts);
       } catch (error) {
         console.error(error);
       }
@@ -122,6 +122,7 @@ function OffcanvasExample() {
           </div>
         </div>
       </nav>
+      <Homepage web3={web3} accounts={accounts} />
     </>
   );
 }
