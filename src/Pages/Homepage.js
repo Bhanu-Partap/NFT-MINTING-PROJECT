@@ -1,13 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import logo from "../images/NFTs.png";
 import { FaWifi } from "react-icons/fa";
 import Web3 from "web3";
 import abijson from "../Abi.json"
 import { toast } from 'react-toastify';
+import Navbar from "../components/Navbar"
 
 
-const Homepage = ({web3, accounts}) => {
+export const Homepage = () => {
+
+  const [web3, setWeb3] = useState(null);
+  const [accounts, setAccounts] = useState([]);
+  
+  
+ 
+ const connectToMetamask = async () => {
+    if (window.ethereum && window.ethereum.isMetaMask) {
+      const web3 = new Web3(window.ethereum);
+      try {
+        await window.ethereum.request({method: 'eth_requestAccounts'});
+        setWeb3(web3);
+        const accounts = await web3.eth.getAccounts();
+        // const capitalizedAccounts = accounts.map((address) => address.toUpperCase());
+        setAccounts(accounts);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    else {
+			console.log('Need to install MetaMask');
+		}
+  };
+
+  useEffect(() => {
+    console.log(accounts);
+  }, [accounts]);
+
+  
+ const disconnectFromMetamask = async () => {
+    if (window.ethereum) {
+      try {
+        await window.ethereum({
+          method: "wallet_requestPermissions",
+          params: [{ eth_accounts: {} }],
+        });
+        setWeb3(null);
+        setAccounts([]);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
   
   
   const Minting = async () => {
@@ -25,7 +70,8 @@ const Homepage = ({web3, accounts}) => {
 
 }
 
-  return (
+  return ( <>
+    <Navbar web3={web3} accounts={accounts} />
     <section>
       <div className="container pt-md-4 pt-lg-4 pt-sm-0 mt-sm-0 mt-4 ">
         <Row xs="12" md="6" lg="6" className="pt-0">
@@ -49,7 +95,8 @@ const Homepage = ({web3, accounts}) => {
         </Row>
       </div>
     </section>
+    </>
   );
 }
 
-export default Homepage;
+export default {Homepage, connectToMetamask };

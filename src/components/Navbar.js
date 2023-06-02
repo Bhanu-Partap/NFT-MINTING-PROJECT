@@ -1,64 +1,10 @@
-import Web3 from "web3";
-import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Homepage from "../Pages/Homepage"
+import {Homepage} from "../Pages/Homepage"
 
 
-
-const OffcanvasExample =() => {
-  
-  const [web3, setWeb3] = useState(null);
-  const [accounts, setAccounts] = useState([]);
-  
-  
-//   const connectMetamask = async () => {
-//     if(window.ethereum !== "undefined") {
-//         const accounts = await window.ethereum.request({method: "eth_requestAccounts"});              
-//         // account = accounts[0];
-//         // document.getElementById("userArea").innerHTML = `User Account: ${account}`;
-//     }
-// }
- 
-  const connectToMetamask = async () => {
-    if (window.ethereum && window.ethereum.isMetaMask) {
-      const web3 = new Web3(window.ethereum);
-      try {
-        await window.ethereum.request({method: 'eth_requestAccounts'});
-        setWeb3(web3);
-        const accounts = await web3.eth.getAccounts();
-        // const capitalizedAccounts = accounts.map((address) => address.toUpperCase());
-        setAccounts(accounts);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    else {
-			console.log('Need to install MetaMask');
-		}
-  };
-
-  useEffect(() => {
-    console.log(accounts);
-  }, [accounts]);
-
-
-  const disconnectFromMetamask = async () => {
-    if (window.ethereum) {
-      try {
-        await window.ethereum({
-          method: "wallet_requestPermissions",
-          params: [{ eth_accounts: {} }],
-        });
-        setWeb3(null);
-        setAccounts([]);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  };
-
+const OffcanvasExample =({web3, accounts}) => {
 
 
   return (
@@ -107,14 +53,14 @@ const OffcanvasExample =() => {
             {web3 ? (
               <Button
                 className="btnsize btn-clrg me-4"
-                onClick={disconnectFromMetamask}
+                onClick={Homepage.disconnectFromMetamask}
               >
                 Logout <FaWallet />
               </Button>
             ) : (
               <Button
                 className="btnsize btn-clrg me-4"
-                onClick={connectToMetamask}
+                onClick={Homepage.connectToMetamask}
               >
                 Connect <FaWallet />
               </Button>
@@ -122,7 +68,6 @@ const OffcanvasExample =() => {
           </div>
         </div>
       </nav>
-      <Homepage web3={web3} accounts={accounts} />
     </>
   );
 }
