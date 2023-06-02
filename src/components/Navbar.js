@@ -1,10 +1,19 @@
 import { Button } from "react-bootstrap";
 import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import {Homepage} from "../Pages/Homepage"
+import Homepage from "../Pages/Homepage"
 
 
 const OffcanvasExample =({web3, accounts}) => {
+
+  function handleclick() {
+    Homepage.connectToMetamask();
+    
+  }
+  function handleclick1() {
+    Homepage.disconnectFromMetamask();
+    
+  }
 
 
   return (
@@ -53,14 +62,14 @@ const OffcanvasExample =({web3, accounts}) => {
             {web3 ? (
               <Button
                 className="btnsize btn-clrg me-4"
-                onClick={Homepage.disconnectFromMetamask}
+                onClick={handleclick1}
               >
                 Logout <FaWallet />
               </Button>
             ) : (
               <Button
                 className="btnsize btn-clrg me-4"
-                onClick={Homepage.connectToMetamask}
+                onClick={handleclick}
               >
                 Connect <FaWallet />
               </Button>

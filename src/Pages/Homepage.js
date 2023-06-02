@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import Navbar from "../components/Navbar"
 
 
-export const Homepage = () => {
+ const Homepage = () => {
 
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
@@ -99,4 +99,4 @@ export const Homepage = () => {
   );
 }
 
-export default {Homepage, connectToMetamask };
+export default {Homepage};
