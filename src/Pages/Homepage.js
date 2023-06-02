@@ -61,7 +61,6 @@ import Navbar from "../components/Navbar"
 
     const Address ="0x3661eca11A85e669B51717392d74F4509891c37b";
     window.web3 = await new Web3(window.ethereum);
-    window.web3 = await new Web3(window.ethereum);
     window.contract = await new window.web3.eth.Contract(ABI, Address);
     console.log(accounts); 
     await window.contract.methods.mintNFT(accounts[0]).send({from: accounts[0],gas:"1000000"});
@@ -99,4 +98,4 @@ import Navbar from "../components/Navbar"
   );
 }
 
-export default {Homepage};
+export default Homepage;

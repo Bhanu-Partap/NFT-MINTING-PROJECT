@@ -7,11 +7,11 @@ import Homepage from "../Pages/Homepage"
 const OffcanvasExample =({web3, accounts}) => {
 
   function handleclick() {
-    Homepage.connectToMetamask();
+    Homepage().connectToMetamask();
     
   }
   function handleclick1() {
-    Homepage.disconnectFromMetamask();
+    Homepage().disconnectFromMetamask();
     
   }
 
