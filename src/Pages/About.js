@@ -1,13 +1,11 @@
 import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import nft1 from "../images/01.png";
-import Navbar from "../components/Navbar"
 
 
 export default function About() {
   return (
     <>
-    <Navbar />
       <section>
         <div className="container">
           <Row className="color">

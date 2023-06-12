@@ -8,12 +8,10 @@ import nft5 from "../images/fdssd.jpg";
 import nft6 from "../images/fdsssd.jpg";
 import nft7 from "../images/nft-collectiomn.jpg";
 import nft8 from "../images/02.jpg";
-import Navbar from "../components/Navbar"
 
 export default function Collection() {
   return (
     <>
-    <Navbar />
       <section>
         <div className="container">
           <Row className="color">
