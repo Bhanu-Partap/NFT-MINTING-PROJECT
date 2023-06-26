@@ -114,7 +114,7 @@ const OffcanvasExample =() => {
           </div>
         </div>
       </nav>
-      <Homepage web3={web3} accounts={accounts} />
+      {/* <Homepage web3={web3} accounts={accounts} /> */}
       
     </>
   );

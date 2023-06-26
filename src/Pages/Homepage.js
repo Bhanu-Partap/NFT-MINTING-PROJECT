@@ -50,8 +50,8 @@ const Homepage = ({web3, accounts}) => {
         </Row>
       </div>
     </section>
-    <Collection />
-    <About />
+    {/* <Collection />
+    <About /> */}
     </>
   );
 }
