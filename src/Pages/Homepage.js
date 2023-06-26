@@ -8,10 +8,9 @@ import { useSelector } from "react-redux";
 
 
 
-const Homepage = (accounts) => {
+const Homepage = () => {
   
-  const walletAddress = useSelector((state)=>state.rootReducer.web3)
-  console.log(walletAddress,"kjhadkjhk");
+  const walletaccountAddress = useSelector((state)=>state.rootReducer.accounts.address)
   
   const Minting = async () => {
 
@@ -20,8 +19,8 @@ const Homepage = (accounts) => {
     const Address ="0xd9145CCE52D386f254917e481eB44e9943F39138";
     window.web3 = await new Web3(window.ethereum);
     window.contract = await new window.web3.eth.Contract(ABI, Address);
-    console.log(accounts); 
-    await window.contract.methods.mintNFT(accounts[0]).send({from: accounts[0],gas:"1000000"});
+    console.log(walletaccountAddress); 
+    await window.contract.methods.mintNFT(walletaccountAddress[0]).send({from: walletaccountAddress[0],gas:"1000000"});
 
 
 }
@@ -51,8 +50,6 @@ const Homepage = (accounts) => {
         </Row>
       </div>
     </section>
-    {/* <Collection />
-    <About /> */}
     </>
   );
 }

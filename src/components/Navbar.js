@@ -25,9 +25,9 @@ const OffcanvasExample = () => {
         // setWeb3(web3);
         const accounts = await web3.eth.getAccounts();
         dispatch(setvalue(accounts));
-        const capitalizedAccounts = accounts.map((address) =>
-          address.toUpperCase()
-        );
+        const capitalizedAccounts = accounts.map((accountsstate) =>
+        accountsstate.toUpperCase()
+        );  
         dispatch(setvalueacc(capitalizedAccounts));
       } catch (error) {
         console.error(error);

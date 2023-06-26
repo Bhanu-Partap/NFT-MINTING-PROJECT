@@ -8,7 +8,7 @@ export const web3 = createSlice({
   reducers: {
     setvalue: (state, action)=>{
         const value = action.payload
-        console.log(value,"______________");
+        console.log(value);
         state.address = action.payload;
     },
 
