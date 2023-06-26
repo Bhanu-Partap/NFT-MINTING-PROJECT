@@ -3,38 +3,39 @@ import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { FaWallet } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Homepage from "../Pages/Homepage"
+import { useDispatch, useSelector } from "react-redux";
+import { deleteValue, setvalue } from "../store/Reducer/web3";
+import { deleteValueacc, setvalueacc } from "../store/Reducer/accounts";
 
+const OffcanvasExample = () => {
+  // const [web3, setWeb3] = useState(null);
+  // const [accounts, setAccounts] = useState([]);
 
-
-const OffcanvasExample =() => {
-  
-  const [web3, setWeb3] = useState(null);
-  const [accounts, setAccounts] = useState([]);
-  
+  const dispatch = useDispatch();
+  const accountsstate = useSelector(
+    (state) => state.rootReducer.accounts.address
+  );
+  const web3 = useSelector((state) => state.rootReducer.web3.address);
 
   const connectToMetamask = async () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
       const web3 = new Web3(window.ethereum);
       try {
-        await window.ethereum.request({method: 'eth_requestAccounts'});
-        setWeb3(web3);
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        // setWeb3(web3);
         const accounts = await web3.eth.getAccounts();
-        const capitalizedAccounts = accounts.map((address) => address.toUpperCase());
-        setAccounts(capitalizedAccounts);
+        dispatch(setvalue(accounts));
+        const capitalizedAccounts = accounts.map((address) =>
+          address.toUpperCase()
+        );
+        dispatch(setvalueacc(capitalizedAccounts));
       } catch (error) {
         console.error(error);
       }
+    } else {
+      console.log("Need to install MetaMask");
     }
-    else {
-			console.log('Need to install MetaMask');
-		}
   };
-
-  useEffect(() => {
-    console.log(accounts);
-  }, [accounts]);
-
 
   const disconnectFromMetamask = async () => {
     if (window.ethereum) {
@@ -43,15 +44,13 @@ const OffcanvasExample =() => {
           method: "wallet_requestPermissions",
           params: [{ eth_accounts: {} }],
         });
-        setWeb3(null);
-        setAccounts([]);
+        dispatch(deleteValue());
+        dispatch(deleteValueacc());
       } catch (error) {
         console.error(error);
       }
     }
   };
-
-
 
   return (
     <>
@@ -90,10 +89,12 @@ const OffcanvasExample =() => {
                 </Link>
               </li>
             </ul>
-            {accounts.length > 0 && (
+            {accountsstate.length > 0 && (
               <p className="px-3">
                 Account:{" "}
-                {accounts[0].slice(0, 4) + "..." + accounts[0].slice(38, 42)}
+                {accountsstate[0].slice(0, 4) +
+                  "..." +
+                  accountsstate[0].slice(38, 42)}
               </p>
             )}
             {web3 ? (
@@ -114,10 +115,8 @@ const OffcanvasExample =() => {
           </div>
         </div>
       </nav>
-      {/* <Homepage web3={web3} accounts={accounts} /> */}
-      
     </>
   );
-}
+};
 
 export default OffcanvasExample;

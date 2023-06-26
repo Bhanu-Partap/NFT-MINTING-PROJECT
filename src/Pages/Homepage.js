@@ -4,13 +4,14 @@ import logo from "../images/NFTs.png";
 import { FaWifi } from "react-icons/fa";
 import Web3 from "web3";
 import abijson from "../Abi.json"
-import Collection from "../Pages/Homepage"
-import About from "../Pages/Homepage"
+import { useSelector } from "react-redux";
 
 
 
-const Homepage = ({web3, accounts}) => {
+const Homepage = (accounts) => {
   
+  const walletAddress = useSelector((state)=>state.rootReducer.web3)
+  console.log(walletAddress,"kjhadkjhk");
   
   const Minting = async () => {
 
