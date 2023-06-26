@@ -21,8 +21,6 @@ const Homepage = () => {
     window.contract = await new window.web3.eth.Contract(ABI, Address);
     console.log(walletaccountAddress); 
     await window.contract.methods.mintNFT(walletaccountAddress[0]).send({from: walletaccountAddress[0],gas:"1000000"});
-
-
 }
 
   return (
