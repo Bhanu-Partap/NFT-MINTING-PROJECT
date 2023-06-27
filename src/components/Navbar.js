@@ -22,8 +22,8 @@ const OffcanvasExample = () => {
       const web3 = new Web3(window.ethereum);
       try {
         await window.ethereum.request({ method: "eth_requestAccounts" });
-        // setWeb3(web3);
         const accounts = await web3.eth.getAccounts();
+        // setWeb3(web3);
         dispatch(setvalue(accounts));
         // const capitalizedAccounts = accounts.map((accounts) =>
         // accounts.toUpperCase()
